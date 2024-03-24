@@ -19,10 +19,11 @@ const galleryItems = images
   .map(
     (image) => `
 <li>
-  <img src="${image.url}" alt="${image.alt}">
+  <img src="${image.url}" alt="${image.alt}" style="width: 100%;" >
 </li>
 `
   )
   .join("");
-
+gallery.style.display = "flex";
+gallery.style.flexWrap = "wrap";
 gallery.insertAdjacentHTML("beforeend", galleryItems);
