@@ -3,12 +3,13 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, "0")}`;
 }
-
+let blocksAmount = 0;
 function createBoxes(amount) {
   const boxesContainer = document.getElementById("boxes");
-  boxesContainer.innerHTML = ""; // Clear previous boxes
+  //boxesContainer.innerHTML = ""; // Clear previous boxes
 
-  let dimension = 30; // Initial dimension
+  let dimension = 30 + 10 * blocksAmount; // Initial dimension
+  blocksAmount += amount;
 
   for (let i = 0; i < amount; i++) {
     const box = document.createElement("div");
@@ -24,6 +25,7 @@ function createBoxes(amount) {
 function destroyBoxes() {
   const boxesContainer = document.getElementById("boxes");
   boxesContainer.innerHTML = ""; // Clear all boxes
+  blocksAmount = 0;
 }
 
 document.querySelector("[data-create]").addEventListener("click", function () {
